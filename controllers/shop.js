@@ -16,8 +16,13 @@ exports.getProduct = (req, res, next) => {
   console.log(prodId)
   Product.findById(prodId, (productItem) => {
     console.log(productItem)
+    res.render('shop/product-detail',{
+      product: productItem,
+      path:'/products',
+      pageTitle: productItem?.title
+    })
   })
-  res.redirect('/')
+  
 
 }
 
