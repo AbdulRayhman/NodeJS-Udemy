@@ -1,1 +1,16 @@
-[{"title":"A Book", "id":"3475122","imageUrl":"https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg","description":"This is an awesome book!","price":"19"},{"title":"Autem et dolore aspe","imageUrl":"Doloremque molestias","description":"Praesentium Nam exce","price":"95","id":"3475141"}]
+[
+  {
+    "title": "A Book",
+    "id": "3475122",
+    "imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
+    "description": "This is an awesome book!",
+    "price": "19"
+  },
+  {
+    "title": "Autem et dolore aspe",
+    "imageUrl": "Doloremque molestias",
+    "description": "Praesentium Nam exce",
+    "price": "95",
+    "id": "3475141"
+  }
+]

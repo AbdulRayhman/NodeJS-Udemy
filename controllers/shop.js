@@ -1,5 +1,6 @@
 const { redirect } = require('express/lib/response');
 const Product = require('../models/product');
+const Cart = require('../models/cart');
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll(products => {
@@ -16,13 +17,13 @@ exports.getProduct = (req, res, next) => {
   console.log(prodId)
   Product.findById(prodId, (productItem) => {
     console.log(productItem)
-    res.render('shop/product-detail',{
+    res.render('shop/product-detail', {
       product: productItem,
-      path:'/products',
+      path: '/products',
       pageTitle: productItem?.title
     })
   })
-  
+
 
 }
 
@@ -42,6 +43,16 @@ exports.getCart = (req, res, next) => {
     pageTitle: 'Your Cart'
   });
 };
+exports.postCart = (req, res, next) => {
+  const productId = req.body.productId
+  console.log("🚀 ~ file: shop.js:48 ~ req.body:", req.body)
+  console.log("🚀 ~ file: shop.js:48 ~ productId:", productId)
+  Product.findById(productId, (prod) => {
+    console.log("🚀 ~ file: shop.js:51 ~ Product.findById ~ prod.id:", prod.id)
+    Cart.addProduct(prod.id, prod.price)
+  })
+  res.redirect('/cart')
+}
 
 exports.getOrders = (req, res, next) => {
   res.render('shop/orders', {
